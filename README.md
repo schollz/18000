@@ -12,7 +12,9 @@ An entire album (12,000 seconds) of cloud-rendered drone music. Stream the album
 
 Edit the drones as you see fit, using SuperCollider.
 
-Then to render the album install `docker` and build the image:
+Then render them in SuperCollider by opening and running `render.scd`.
+
+To render in the cloud, install `docker` and build the image:
 
 ```
 git clone https://github.com/schollz/supercollider-radio
