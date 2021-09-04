@@ -1,5 +1,5 @@
 {
-	arg hz=170,amp=1.0, seconds=60;
+	arg hz=170,amp=1.0;
 	var y,z;
 	var detuning=0.5;
 	var finalsnd;
@@ -33,7 +33,6 @@
 	finalsnd=finalsnd*amp;
 
 	// reverb predelay time :
-	finalsnd=finalsnd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,15]));
 	z = DelayN.ar(finalsnd, 0.048);
 	// 7 length modulated comb delays in parallel :
 	y = Mix.ar(Array.fill(7,{ CombL.ar(z, 0.1, LFNoise1.kr(0.1.rand, 0.04, 0.05), 15) }));
@@ -42,6 +41,5 @@
 	// add original sound to reverb and play it :
 	finalsnd=finalsnd+(0.05*y);
 
-	finalsnd=finalsnd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,16]));
-	Out.ar(0,finalsnd*(-20.dbamp));
-}.play;
+	finalsnd=finalsnd*(-20.dbamp);
+}

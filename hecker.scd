@@ -1,5 +1,5 @@
 {
-	arg hz=220,amp=0.5, seconds=60;
+	arg hz=220,amp=0.5;
 	var snd,mod,modFreq,sndk,bass,basshz;
 	modFreq=10;
 	snd=[Mix.ar({
@@ -25,6 +25,5 @@
 	bass = LPF.ar(bass,SinOsc.kr(0.1).range(2,5)*basshz);
 	snd=snd+(SinOsc.kr(0.123).range(0.5,2)*bass);
 
-	snd=snd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,16]));
-	Out.ar(0,snd.tanh*amp*(-10.dbamp));
-}.play;
+	snd=snd.tanh*amp*(-10.dbamp);
+}

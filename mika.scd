@@ -1,5 +1,5 @@
 {
-	arg hz=220,amp=0.5,seconds=60;
+	arg hz=220,amp=0.5;
 	var snd,freq,pulse, chords, chord, basshz, bass;
 	//            Am        F          C          Em
 	// chords=Dseq([[33,36,40],[33,36,41],[31,36,40],[31,35,40]],inf);
@@ -28,9 +28,8 @@
 	bass = LPF.ar(bass,SinOsc.kr(0.1).range(2,3)*basshz);
 	snd=snd+(SinOsc.kr(0.123).range(1.5,2.5)*bass);
 
-	snd=snd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,16],\sine));
 	snd=LeakDC.ar(snd);
-	Out.ar(0,snd.tanh*(-20.dbamp))
+	snd=snd.tanh*(-20.dbamp);
 }
 // orignal
 // https://ia600202.us.archive.org/29/items/sc140/sc140_sourcecode.txt

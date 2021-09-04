@@ -8,9 +8,8 @@ s.waitForBoot({
 		Routine {
 			var server = Server(\nrt, options:ServerOptions.new.numOutputBusChannels_(2));
 			var def = SynthDef(\nrtDrone, {
-				arg out=0, gate=1, amp, hz, dur=30, atk=4, rel=8;
-				var snd = graph.value();
-				//var snd = graph.value(hz:hz, amp:amp);
+				arg out=0, gate=1, amp=0.5, hz=110, dur=30, atk=4, rel=8;
+				var snd = graph.value(hz:hz, amp:amp);
 				snd = snd * EnvGen.ar(Env.new([0, 1, 1, 0], [atk, dur-atk-rel, rel]), doneAction:2);
 				Out.ar(out, snd)
 			}).load(server);
@@ -41,13 +40,16 @@ s.waitForBoot({
 		}.play;
 	};
 
+
 	Routine {
-		~playNrtScript.value(thisProcess.nowExecutingPath.dirname++"/mika.scd", duration:60);
-		2.wait;
-		~playNrtScript.value(thisProcess.nowExecutingPath.dirname++"/dreamcrusher.scd", duration:120);
-		2.wait;
+		~drones=["coil","dreamcrusher","hecker","malone","mika","sachiko","starlids","starlids2","sunno","toshiya"];
+		~hzs=[170,110,220,190,220,110,220,220,110,440];
+		~drones.do({ arg item, i;
+			[i, item].postln;
+			~playNrtScript.value(thisProcess.nowExecutingPath.dirname++"/"++item++".scd", duration:15, hz:~hzs[i]);
+			5.wait;
+		});
 		s.quit;
 	}.play;
-
 });
 )

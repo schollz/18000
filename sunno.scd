@@ -1,5 +1,5 @@
 {
-	arg hz=110,amp=1.0,seconds=60;
+	arg hz=110,amp=1.0;
 	var guitar,finalsnd,z,y;
 	hz=hz*VarLag.kr(LFNoise0.kr(1/10),10,warp:\sine).range(0.95,1);
 	guitar={
@@ -37,7 +37,6 @@
 	finalsnd=finalsnd/10;
 
 	// reverb predelay time :
-	finalsnd=finalsnd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,15]));
 	z = DelayN.ar(finalsnd, 0.048);
 	// 7 length modulated comb delays in parallel :
 	y = Mix.ar(Array.fill(7,{ CombL.ar(z, 0.1, LFNoise1.kr(0.1.rand, 0.04, 0.05), 15) }));
@@ -47,6 +46,5 @@
 	finalsnd=finalsnd+(VarLag.kr(LFNoise0.kr(1/10),10,warp:\sine).range(0.01,0.04)*y);
 	finalsnd=finalsnd*EnvGen.ar(Env.new([0,1],[4]));
 	finalsnd=Compander.ar(finalsnd,finalsnd);
-	finalsnd=finalsnd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,16]));
-	Out.ar(0,finalsnd*amp*(-10.dbamp));
-}.play;
+	finalsnd=finalsnd*amp*(-10.dbamp);
+}

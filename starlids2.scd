@@ -1,5 +1,5 @@
 {
-	arg hz=220,amp=0.5,seconds=60;
+	arg hz=220,amp=0.5;
 	var snd,fx,y,z,note;
 
 	note=hz.cpsmidi;
@@ -36,8 +36,6 @@
 
 	snd=MoogLadder.ar(snd.tanh,LinExp.kr(VarLag.kr(LFNoise0.kr(1/6),6,warp:\sine),-1,1,hz*10,hz*120));
 
-	snd=snd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,15]));
-
 	// reverb predelay time :
 	z = DelayN.ar(snd, 0.04);
 	// 7 length modulated comb delays in parallel :
@@ -48,7 +46,4 @@
 	snd=snd+(0.05*y);
 
 	snd=HPF.ar(snd*amp,40);
-
-	snd=snd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,16]));
-	Out.ar(0,snd);
-}.play;
+}
