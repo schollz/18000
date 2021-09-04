@@ -1,3 +1,7 @@
+// @infinitedigits
+// Coil
+// Traversing the tunnels of goats.
+
 {
 	arg hz=170,amp=1.0;
 	var y,z;
@@ -29,7 +33,6 @@
 		snd=Pan2.ar(snd,env2)
 	}!12);
 
-	finalsnd=finalsnd*EnvGen.ar(Env.new([0,1],[4]));
 	finalsnd=finalsnd*amp;
 
 	// reverb predelay time :

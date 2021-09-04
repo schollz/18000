@@ -1,3 +1,7 @@
+// @infinitedigits
+// Mika
+// Hum and beeps.
+
 {
 	arg hz=220,amp=0.5;
 	var snd,freq,pulse, chords, chord, basshz, bass;
@@ -29,9 +33,9 @@
 	snd=snd+(SinOsc.kr(0.123).range(1.5,2.5)*bass);
 
 	snd=LeakDC.ar(snd);
-	snd=snd.tanh*(-20.dbamp);
+	snd=snd.tanh*(-20.dbamp)*amp;
 }
-// orignal
+// modified from orignal
 // https://ia600202.us.archive.org/29/items/sc140/sc140_sourcecode.txt
 // 16
 // Batuhan Bozkurt
