@@ -38,7 +38,7 @@ for i in {1..10}; do; echo $i; docker run -d -v `pwd`:/data sc; sleep 2;  done
 
 It will finish rendering in less than 2 minutes. (Change album length on line 52 of `render.scd`).
 
-## About
+## about
 
 
 this album came about while learning about SuperCollider and making drones for the [dronecaster](https://llllllll.co/t/dronecaster/34737) norns script and picking off that beautifully curated artisinal drone menu. these are some of my favorite drone sounds that I've made. I made the album so I could listen to the drones all the time. I hope you enjoy them as well :). here's a little backstory of the drones:
