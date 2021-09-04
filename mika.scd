@@ -31,7 +31,7 @@
 	snd=snd*EnvGen.ar(Env.new([0,1,1,0],[4,seconds,16],\sine));
 	snd=LeakDC.ar(snd);
 	Out.ar(0,snd.tanh*(-20.dbamp))
-}.play;
+}
 // orignal
 // https://ia600202.us.archive.org/29/items/sc140/sc140_sourcecode.txt
 // 16
