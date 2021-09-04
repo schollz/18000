@@ -23,7 +23,7 @@ docker build -t sc . # takes awhile
 Then to render the album run
 
 ```
-python3 render.py
+docker run -v `pwd`:/data sc
 ```
 
-and the entire album will be rendered in 20 minutes
+and the entire album will be rendered in a few seconds. (Change album length on line 49 of `render.scd`).
