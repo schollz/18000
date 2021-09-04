@@ -1,5 +1,11 @@
 # 12000
 
+
+<center>
+	<img src="https://user-images.githubusercontent.com/6550035/132101013-09e6fb6b-957f-41d0-8634-27fcd795d184.png">
+</center>
+
+
 An entire album (12,000 seconds) of cloud-rendered drone music.
 
 ## Rendering
