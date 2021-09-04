@@ -46,7 +46,7 @@ s.waitForBoot({
 		~hzs=[170,110,220,190,220,110,220,220,110,440];
 		~drones.do({ arg item, i;
 			[i, item].postln;
-			~playNrtScript.value(thisProcess.nowExecutingPath.dirname++"/"++item++".scd", duration:15, hz:~hzs[i]);
+			~playNrtScript.value(thisProcess.nowExecutingPath.dirname++"/drone/"++item++".scd", duration:15, hz:~hzs[i]);
 			5.wait;
 		});
 		s.quit;
