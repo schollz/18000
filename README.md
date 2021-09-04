@@ -28,4 +28,12 @@ Then to render the album run
 docker run -v `pwd`:/data sc
 ```
 
-and the entire album will be rendered in a few seconds. (Change album length on line 49 of `render.scd`).
+and the entire album will be rendered. 
+
+Render it all at once using:
+
+```
+for i in {1..10}; do; echo $i; docker run -d -v `pwd`:/data sc; sleep 2;  done
+```
+
+It will finish rendering in less than 2 minutes. (Change album length on line 52 of `render.scd`).
