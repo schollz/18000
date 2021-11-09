@@ -42,15 +42,18 @@ s.waitForBoot({
 
 
 	Routine {
-		~drones=["coil","dreamcrusher","hecker","malone","mika","sachiko","starlids","starlids2","sunno","toshiya"];
-		~hzs=[170,110,220,190,220,110,220,220,110,440];
+		/*~drones=["coil","dreamcrusher","hecker","malone","mika","sachiko","starlids","starlids2","sunno","toshiya","low","rehberg","eno"];
+		~hzs=[170,110,220,190,220,110,220,220,110,440,440,55,440];
+		*/
+		~drones=["low","rehberg","eno"];
+		~hzs=[550,55,550];
 		~drones.do({ arg item, i;
 			var fname=thisProcess.nowExecutingPath.dirname++"/drone/"++item++".scd";
 			fname.postln;
 			if (File.exists(fname++".wav"),{},{
 				[i, item].postln;
 				~playNrtScript.value(thisProcess.nowExecutingPath.dirname++"/drone/"++item++".scd", duration:20*60, hz:~hzs[i]);
-				45.wait;
+				60.wait;
 			});
 		});
 
