@@ -1,5 +1,6 @@
 (
 s.waitForBoot({
+	b=Buffer.alloc(s,s.sampleRate*10,2);
 	~playNrtScript= { arg script, duration, hz, amp=0.5, outfile=nil ;
 		var graph, score, opt;
 		graph = this.executeFile(script);
@@ -45,8 +46,8 @@ s.waitForBoot({
 		/*~drones=["coil","dreamcrusher","hecker","malone","mika","sachiko","starlids","starlids2","sunno","toshiya","low","rehberg","eno"];
 		~hzs=[170,110,220,190,220,110,220,220,110,440,440,55,440];
 		*/
-		~drones=["low","rehberg","eno"];
-		~hzs=[550,55,550];
+		~drones=["low","rehberg","eno","lleb","strega"];
+		~hzs=[550,55,550,240,120];
 		~drones.do({ arg item, i;
 			var fname=thisProcess.nowExecutingPath.dirname++"/drone/"++item++".scd";
 			fname.postln;
