@@ -6,7 +6,7 @@
 </center>
 
 
-An entire album (12,000 seconds) of cloud-rendered drone music. Stream the album: https://infinitedigits.bandcamp.com/album/12000
+An entire album (18,000 seconds) of cloud-rendered drone music. Stream the album: https://infinitedigits.bandcamp.com/album/18000
 
 ## rendering
 
